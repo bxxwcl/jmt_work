@@ -12,7 +12,7 @@
 <div class="clearfix">
   <div class="btn-group pull-left">
     <a href="/tickets" class="btn btn-default active">我的工单</a>
-    <a href="/history" class="btn btn-default">广场</a>
+    <a href="/history" class="btn btn-default">工单广场</a>
   </div>
   <a class="btn btn-primary" href="/tickets/new" style="margin-left: 10px;">新建工单</a>
   <% include browser_notification %>
@@ -36,8 +36,7 @@
     <tr>
       <td class="table-id" data-sort-value="<%=ticket.ticket_id%>">#<%= ticket.ticket_id%></td>
       <td class="table-title"><a href="/tickets/<%= ticket.id %>/threads" title="#<%= ticket.ticket_id
-        %>"><%=
-            ticket.title %></a></td>
+        %>"><%=ticket.title %></a></td>
       <td class="table-status"><%= ticket.status %></td>
       <td class="table-type"><%= ticket.type %></td>
       <td class="table-date" data-sort-value="<%= ticket.createdAtUnix %>"><span class="bstooltip" title="<%= ticket.createdAtLong %>"><%= ticket.createdAt %></span></td>
@@ -45,7 +44,4 @@
     <% }) %>
     </tbody>
   </table>
-  <p>
-    提示：非敏感问题，可以到 <a href="http://segmentfault.com/avoscloud" target="blank">SegmentFault 问答专区</a> 提问。
-  </p>
 </div>

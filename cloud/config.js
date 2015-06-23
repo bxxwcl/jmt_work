@@ -2,8 +2,8 @@
  * Created by lzw on 14-8-19.
  */
 //我申请的一个应用的appId,appKey，你可以替换成自己的，新建一条工单，便可以看到相应的表
-exports.applicationId='hy9dz70gn3vsbrzjfg9ftgqdpjeat6gccj2370d5cluj4757';
-exports.applicationKey='3bgiq1usvdulji2zfy0ov1g03xcaxzw5txc5c5vs9f1nzvwt';
+exports.applicationId='0xirhvysx6ckx19ymva4x8mgwtyr4ki1rwvdhucbjdmy7jjd';
+exports.applicationKey='qsutkqckqdvobmnw9o7p07akiv9khosd9o35kzhvl7pxm0vj';
 
 //express用做加密token的salt，自己申请应用搭建时，可稍微更改字符串，可以更安全
 exports.cookieParserSalt="klp4e8b4sddjp2";
@@ -15,7 +15,7 @@ exports.mailGunKey='';//please use your mailGunKey
 exports.slackUrl='https://hooks.slack.com/services/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';
 
 //配置自己申请的子域名
-exports.hostUrl='http://myticket.avosapps.com';
+exports.hostUrl='http://ask.jmtw.cc';
 
 //邮件的发送者，平时管理员回复了你的工单的时候，你便会收到来自这个邮箱的email
 exports.emailHost='notification@avoscloud.com';

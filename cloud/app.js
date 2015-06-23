@@ -55,16 +55,12 @@ var slackUrl = config.slackUrl;
 var anonymousCid = login.anonymousCid;
 var Ticket = AV.Object.extend('Ticket');
 var Thread = AV.Object.extend('Thread');
-var adminPrefix = 'AVOS Cloud -- ';
+var adminPrefix = 'JMT Work Order -- ';
 var type2showMap = {
-    'ios': 'iOS SDK',
-    'android': 'Android SDK',
-    'javascript': 'JavaScript SDK',
-    'push': '消息推送',
-    'cloud': '云代码',
-    'stats': '统计',
-    'dashboard': '开发者平台',
-    'other': '其他'
+    'cloud': '系统使用',
+    'stats': '交易问题',
+    'dashboard': '技术问题',
+    'other': '其他问题'
 };
 
 function renderStatus(status) {
@@ -247,7 +243,7 @@ function sendEmail(ticket, subject, text, email) {
             }
         }
         if (__production && to) {
-            mg.sendRaw(_s.sprintf('AVOS Cloud Ticket System <%s>', config.emailHost),
+            mg.sendRaw(_s.sprintf('JMT Ticket System <%s>', config.emailHost),
                 [to],
                     'From:' + config.emailHost +
                     '\nTo: ' + to +
@@ -784,13 +780,13 @@ app.get('/tickets/:id/threads', function (req, res) {
     }, renderErrorFn(res));
 });
 
-var closeMsg = '关闭了 AVOS Cloud 上的工单，如果还有问题请及时联系。';
+var closeMsg = '关闭了 金脉通工单系统 上的工单，如果还有问题请及时联系。';
 function sendClientEmail(ticket, html) {
     var ticketSeq = getTicketId(ticket);
-    var link = 'http://ticket.avosapps.com/tickets/' + ticket.id + '/threads';
-    html = html + '<br/><p>请直接 <a href="' + link + '" target="_blank">点击这里</a> 进入 AVOS Cloud 技术支持系统回复。</p>' +
+    var link = 'http://ask.jmtw.cc/tickets/' + ticket.id + '/threads';
+    html = html + '<br/><p>请直接 <a href="' + link + '" target="_blank">点击这里</a> 进入金脉通工单系统回复。</p>' +
         '<p>谢谢，AVOS Cloud Team</p>';
-    sendEmail(ticket, 'AVOS Cloud 技术支持工单' + ticketSeq + ' 更新', html, ticket.get('client_email'));
+    sendEmail(ticket, '金脉通工单' + ticketSeq + ' 更新', html, ticket.get('client_email'));
 }
 
 function sendCloseEmail(ticket) {
@@ -862,7 +858,7 @@ app.post('/tickets/:id/threads', function (req, res) {
                                 notifyTicketToChat(ticket, '', '管理员关闭了工单。');
                             }
                             sendClientEmail(ticket, html, ticketSeq);
-                            addNotify('http://ticket.avosapps.com/tickets/' + ticket.id + '/threads', cid);
+                            addNotify('http://ask.jmtw.cc/tickets/' + ticket.id + '/threads', cid);
                         } else {
                             if (close == '1') {
                                 if (content == null || content == '') {
@@ -993,7 +989,7 @@ function uniqTickets(ts) {
 
 function getAdminReplyN() {
     var q = new AV.Query(Thread);
-    q.startsWith('user', 'AVOS');
+    q.startsWith('user', 'JMT');
     return q.count();
 }
 
