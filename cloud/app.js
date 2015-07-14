@@ -785,7 +785,7 @@ function sendClientEmail(ticket, html) {
     var ticketSeq = getTicketId(ticket);
     var link = 'http://ask.jmtw.cc/tickets/' + ticket.id + '/threads';
     html = html + '<br/><p>请直接 <a href="' + link + '" target="_blank">点击这里</a> 进入金脉通工单系统回复。</p>' +
-        '<p>谢谢，AVOS Cloud Team</p>';
+        '<p>谢谢，金脉通技术团队</p>';
     sendEmail(ticket, '金脉通工单' + ticketSeq + ' 更新', html, ticket.get('client_email'));
 }
 

@@ -18,7 +18,7 @@ exports.slackUrl='https://hooks.slack.com/services/T025WANLZ/B02G53BS1/rNDqBLRC8
 exports.hostUrl='http://ask.jmtw.cc';
 
 //邮件的发送者，平时管理员回复了你的工单的时候，你便会收到来自这个邮箱的email
-exports.emailHost='notification@avoscloud.com';
+exports.emailHost='service@jmtw.cc';
 
 //注册后，是否需要通过邮件验证才可以使用工单系统
 exports.needEmailVerify = false;
