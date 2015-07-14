@@ -1162,11 +1162,11 @@ app.post('/login', function (req, res) {
 });
 
 app.get('/register', function (req, res) {
+    window.location.href = 'http://beta.jmtw.cc/index/login/reg';
     if (login.isLogin(req)) {
         res.redirect('/tickets');
     } else {
-        window.location.href = 'http://beta.jmtw.cc/index/login/reg';
-        //res.render('register.ejs');
+        res.render('register.ejs');
     }
 });
 
