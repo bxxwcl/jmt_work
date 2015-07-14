@@ -1165,7 +1165,8 @@ app.get('/register', function (req, res) {
     if (login.isLogin(req)) {
         res.redirect('/tickets');
     } else {
-        res.render('register.ejs');
+        window.location.href = 'http://beta.jmtw.cc/index/login/reg';
+        //res.render('register.ejs');
     }
 });
 
