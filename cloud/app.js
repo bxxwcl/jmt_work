@@ -1162,7 +1162,7 @@ app.post('/login', function (req, res) {
 });
 
 app.get('/register', function (req, res) {
-    res.redirect('http://beta.jmtw.cc/index/login/reg');
+    //res.redirect('http://beta.jmtw.cc/index/login/reg');
     if (login.isLogin(req)) {
         res.redirect('/tickets');
     } else {
