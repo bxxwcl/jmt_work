@@ -39,7 +39,7 @@ app.use(avosExpressCookieSession({
 app.use(expressLayouts);
 app.use(login.clientTokenParser());
 app.use(app.router);
-//app.use(login.clientTokenParser());
+app.use(login.clientTokenParser());
 
 var todo_status = 0;
 var processing_status = 1;

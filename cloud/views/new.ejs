@@ -33,6 +33,9 @@
 
 
   });
+<% if(client.id=='anonymousCid'){%>
+alert('请登录后再发布工单请求！\n\n登录账户密码与您在金脉通交易系统的帐号密码一致！');local.href='/login';
+<%}%>
 </script>
 <% if(client.id!='anonymousCid'){%>
 
