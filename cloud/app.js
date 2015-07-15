@@ -55,7 +55,7 @@ var slackUrl = config.slackUrl;
 var anonymousCid = login.anonymousCid;
 var Ticket = AV.Object.extend('Ticket');
 var Thread = AV.Object.extend('Thread');
-var adminPrefix = 'JMT Work Order -- ';
+var adminPrefix = 'JMT CS -- ';
 var type2showMap = {
     'cloud': '系统使用',
     'stats': '交易问题',
@@ -166,7 +166,7 @@ function transformSearchTicket(t) {
 
 function formatTime(t) {
     var date = moment(t).fromNow();
-    var cleanDate = '<span class="form-cell-date">' + moment(t).format('YYYY-MM-DD') + '</span> <span class="form-cell-time">' + moment(t).format('HH:mm:ss') + '</span>';
+    var cleanDate = '<span class="form-cell-date">' + moment(t).format('YYYY-MM-DD') + '</span> <span class="form-cell-time">' + moment(t).format('HH:mm:ss') + 'xx</span>';
     return date;
 }
 
@@ -1162,7 +1162,7 @@ app.post('/login', function (req, res) {
 });
 
 app.get('/register', function (req, res) {
-    //res.redirect('http://beta.jmtw.cc/index/login/reg');
+    res.redirect('http://beta.jmtw.cc/index/login/reg');
     if (login.isLogin(req)) {
         res.redirect('/tickets');
     } else {
@@ -1237,11 +1237,11 @@ function testFn(fn, res) {
 
 app.get('/logout', function (req, res) {
     AV.User.logOut();
-    res.redirect('/tickets');
+    res.redirect('/history');
 });
 
 app.get('/', function (req, res) {
-    res.redirect('/tickets');
+    res.redirect('/history');
 });
 
 app.get('/google', function (req, res) {
